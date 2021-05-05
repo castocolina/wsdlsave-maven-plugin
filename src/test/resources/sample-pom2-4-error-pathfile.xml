@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>dev.castocolina.maven.plugins</groupId>
+    <artifactId>savewsdltest-maven-plugin</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>savewsdltest-maven-plugin Maven Mojo</name>
+    <description>Plugin que toma una url de un wsdl y lo guarda junto con sus xsd</description>
+    <url>http://www.castocolina.dev</url>
+
+    <developers>
+        <developer>
+            <id>castocolina</id>
+            <email>castocolina.dev@gmail.com</email>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>${groupId}</groupId>
+                <artifactId>${artifactId}</artifactId>
+                <configuration>
+                    <wsdlUrl>http://www.dneonline.com/calculator.asmx?wsdl</wsdlUrl>
+                    <wsdlFileName>AWSECommerceService.wsdl</wsdlFileName>
+                    <resourceDir>${project.build.directory}/test-classes/sample-pom2-4-error-pathfile.xml</resourceDir>
+                    <baseDir>${basedir}</baseDir>
+                    <indentContent>true</indentContent>
+                    <trustSSL>true</trustSSL>
+                    <skipHostCheck>true</skipHostCheck>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>

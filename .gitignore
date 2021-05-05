@@ -1,0 +1,37 @@
+# Eclipse
+.classpath
+.project
+.springBeans
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Gradle
+build/
+.gradle/
+
+# Sonar local
+.sonar/
+bin/
+
+.prefs
+*.prefs
+.metadata/
+*.class
+*.war
+*.ear
+deploy.sh
+test-output/
+*.log
+
+

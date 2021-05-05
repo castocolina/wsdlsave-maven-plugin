@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+                
+                Copyright (C) 2006 W3C (R) (MIT ERCIM Keio), All Rights Reserved.
+                W3C liability, trademark and document use rules apply.
+                
+                http://www.w3.org/Consortium/Legal/ipr-notice
+                http://www.w3.org/Consortium/Legal/copyright-documents
+                
+		Generated from: $Id: examples.xml,v 1.174 2009/03/19 17:20:15 pdowney Exp $
+-->
+<description xmlns:def="http://www.w3.org/2002/ws/databinding/examples/6/09/"
+             xmlns="http://www.w3.org/2006/01/wsdl"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:p="http://www.w3.org/2002/ws/databinding/patterns/6/09/"
+             xmlns:ex="http://www.w3.org/2002/ws/databinding/examples/6/09/"
+             targetNamespace="http://www.w3.org/2002/ws/databinding/examples/6/09/">
+   <types>
+      <xs:schema xmlns="http://www.w3.org/2002/ws/databinding/examples/6/09/"
+                 targetNamespace="http://www.w3.org/2002/ws/databinding/examples/6/09/"
+                 elementFormDefault="qualified">
+         <xs:import xmlns:wsdl11="http://schemas.xmlsoap.org/wsdl/"
+                    xmlns:soap11enc="http://schemas.xmlsoap.org/soap/encoding/"
+                    namespace="http://example.com/a/namespace"
+                    schemaLocation="echoImportSchema.wsdl"/>
+         <xs:element name="echoImportSchema">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element ref="ex:importSchema"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+   </types>
+   <interface name="ImportSchemaInterface">
+      <operation name="echoImportSchema" pattern="http://www.w3.org/2006/01/wsdl/in-out">
+         <input element="ex:echoImportSchema"/>
+         <output element="ex:echoImportSchema"/>
+      </operation>
+   </interface>
+   <binding xmlns:wsoap="http://www.w3.org/2006/01/wsdl/soap" name="ImportSchemaSoapBinding"
+            interface="def:ImportSchemaInterface"
+            type="http://www.w3.org/2006/01/wsdl/soap"
+            wsoap:version="1.1"
+            wsoap:protocol="http://www.w3.org/2006/01/soap11/bindings/HTTP/">
+      <operation ref="def:echoImportSchema"
+                 wsoap:soapAction="http://www.w3.org/2002/ws/databinding/examples/6/09/wsdl#echoImportSchema"/>
+   </binding>
+   <service name="ImportSchemaService" interface="def:ImportSchemaInterface">
+      <endpoint name="ImportSchemaPort" binding="def:ImportSchemaSoapBinding"
+                address="http://localhost/"/>
+   </service>
+</description>
