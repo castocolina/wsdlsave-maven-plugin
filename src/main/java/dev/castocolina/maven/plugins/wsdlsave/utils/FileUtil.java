@@ -78,7 +78,7 @@ public final class FileUtil {
             File importFile = urlNameToFileName(url, location, parentDir);
 
             if (!importFile.exists()) {
-                log.info("guardando definicio desde:" + url.toExternalForm());
+                log.info("guardando definicion desde:" + url.toExternalForm());
                 log.info("Hasta : " + importFile.getAbsolutePath());
                 saveURL(url, importFile);
                 Document importDocument = parseXmlFile(importFile, false);
@@ -132,9 +132,8 @@ public final class FileUtil {
         return importFile;
     }
 
-    // TODO CHECK this
     public File renameIfExist(String urlFileStr, File file) {
-        File newFile = file;
+        File newFile;
         File baseDir = file.getParentFile();
 
         if (mapUrlFile.get(urlFileStr) == null) {

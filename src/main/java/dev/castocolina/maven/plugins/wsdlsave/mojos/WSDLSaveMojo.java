@@ -100,14 +100,13 @@ public class WSDLSaveMojo extends AbstractMojo {
         getLog().info("----> " + wsdlFileOut.getAbsolutePath());
 
         try {
+            tryDelete(parentDir);
 
             if (wsdlFileOut.exists()) {
                 wsdlFileOut = fUtil.renameIfExist(wsdlFileName, wsdlFileOut);
             }
 
             fileChecks(parentDir);
-
-            tryDelete(parentDir);
 
             if (!parentDir.exists()) {
                 getLog().warn("No existe " + parentDir.getAbsolutePath());
@@ -143,6 +142,7 @@ public class WSDLSaveMojo extends AbstractMojo {
         if (cleanDir && parentDir.exists()) {
             getLog().info("cleaning dir: " + parentDir.getCanonicalPath());
             boolean candelete = fUtil.deleteDir(parentDir);
+            getLog().info("DIR_CLEANED: " + candelete);
             if (!candelete) {
                 getLog().warn("No se pudo eliminar el directorio!");
             }
